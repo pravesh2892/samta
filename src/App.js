@@ -15,8 +15,8 @@ function App() {
     <div className="App">
       <Navbar onSearch={handleGlobalSearch} />
       <div className="app-container">
-        <CountdownTimer />
         <UserInfo globalSearchTerm={globalSearchTerm} />
+        <CountdownTimer />
       </div>
     </div>
   );

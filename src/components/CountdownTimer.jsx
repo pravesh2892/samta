@@ -1,52 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import Timer from "./Timer";
+import Tabs from "./Tabs";
+import Settings from "./Settings";
+import gear from "../Assets/gear.png";
 
 function CountdownTimer() {
-  const [time, setTime] = useState(60);
-  const [isRunning, setIsRunning] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
+  const [currentTab, setCurrentTab] = useState("pomodoro");
+  const [timerSettings, setTimerSettings] = useState({
+    pomodoro: 25,
+    shortBreak: 5,
+    longBreak: 15,
+    cycles: 2,
+  });
 
-  useEffect(() => {
-    let interval;
-    if (isRunning && time > 0) {
-      interval = setInterval(() => {
-        setTime((prevTime) => prevTime - 1);
-      }, 1000);
-    } else if (time === 0) {
-      setIsRunning(false);
-    }
-    return () => clearInterval(interval);
-  }, [isRunning, time]);
-
-  const handleStart = () => setIsRunning(true);
-  const handleStop = () => setIsRunning(false);
-  const handleReset = () => {
-    setIsRunning(false);
-    setTime(60);
-  };
-
-  const handleTimeChange = (e) => {
-    const newTime = parseInt(e.target.value, 10);
-    if (!isNaN(newTime)) {
-      setTime(newTime);
-    }
+  const handleTabChange = (tab) => {
+    setCurrentTab(tab);
   };
 
   return (
-    <div className="countdown-timer">
-      <h2>Countdown Timer</h2>
-      <input
-        type="number"
-        value={time}
-        onChange={handleTimeChange}
-        disabled={isRunning}
-      />
-      <button onClick={handleStart} disabled={isRunning}>
-        Start
-      </button>
-      <button onClick={handleStop} disabled={!isRunning}>
-        Stop
-      </button>
-      <button onClick={handleReset}>Reset</button>
-      <p>Current Time: {time} seconds</p>
+    <div className="container">
+      <Tabs currentTab={currentTab} onTabChange={handleTabChange} />
+      <Timer settings={timerSettings} currentTab={currentTab} />
+      <div className="settings">
+        <img src={gear} alt="settings" onClick={() => setShowSettings(true)} />
+      </div>
+      {showSettings && (
+        <Settings
+          settings={timerSettings}
+          onSettingsChange={setTimerSettings}
+          onClose={() => setShowSettings(false)}
+        />
+      )}
     </div>
   );
 }
