@@ -24,20 +24,7 @@ function Settings({ settings, onSettingsChange, onClose }) {
       <h2>Time (Minutes)</h2>
       <div className="timeSettings">
         <div>
-          <label htmlFor="pomodoro">Pomodoro</label>
-          <input
-            type="number"
-            id="pomodoro"
-            name="pomodoro"
-            value={settings.pomodoro}
-            onChange={handleInputChange}
-            min="25"
-            max="45"
-            step="5"
-          />
-        </div>
-        <div>
-          <label htmlFor="shortBreak">Short Break</label>
+          <label htmlFor="shortBreak">Short Timer</label>
           <input
             type="number"
             id="shortBreak"
@@ -50,7 +37,7 @@ function Settings({ settings, onSettingsChange, onClose }) {
           />
         </div>
         <div>
-          <label htmlFor="longBreak">Long Break</label>
+          <label htmlFor="longBreak">Long Timer</label>
           <input
             type="number"
             id="longBreak"

@@ -2,13 +2,17 @@
 /* App.css */
 body {
   font-family: Arial, sans-serif;
+  height: 100%;
   margin: 0;
   padding: 0;
-  background-color: #f0f0f0;
+  background: rgb(238,174,202);
+  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
 }
 
 .App {
+
   min-height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
   background: rgb(238,174,202);
@@ -33,7 +37,7 @@ h1 {
 }
 /*Navbar.css */
 .navbar {
-  background-color: #333;
+  background-color: #151932;
   color: white;
   padding: 10px 20px;
   display: flex;
@@ -58,7 +62,7 @@ h1 {
 
 .search-form button {
   padding: 5px 10px;
-  background-color: #4CAF50;
+  background-color: #df3232;
   color: white;
   border: none;
   border-radius: 0 4px 4px 0;
@@ -66,7 +70,7 @@ h1 {
 }
 
 .search-form button:hover {
-  background-color: #45a049;
+  background-color: #e76060;
 }
 
 /* UserInfo.css */
@@ -79,6 +83,8 @@ h1 {
 }
 
 .user-info h2 {
+  display: flex;
+  justify-content: center;
   margin-top: 0;
   color: #333;
 }
@@ -92,6 +98,8 @@ h1 {
 }
 
 .user-info h3 {
+  display: flex;
+  justify-content: center;
   margin-top: 20px;
   color: #333;
 }
@@ -157,10 +165,10 @@ h1 {
   
   .tabs>ul{
   margin: 0px auto;
-  width: fit-content;
+  
   list-style: none;
-  color: #eeeff7;
-  background-color: #151932 ;
+  color: #333;
+  background-color: white ;
   border-radius: 50px;
   }
   
@@ -199,7 +207,7 @@ h1 {
   .inner-circle{
   position: absolute;
   inset: 20px;
-  background-color: #151934;
+  background-color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -213,7 +221,7 @@ h1 {
   font-size: 5rem;
   font-weight: 900;
   text-shadow: 2px 0px;
-  color: #e2e9ff ;
+  color: #333 ;
   margin: 20px auto;
   position: absolute;
   cursor: default;
@@ -228,7 +236,7 @@ h1 {
   cursor: pointer;
   text-transform: uppercase;
   letter-spacing: 10px;
-  color: #e2e9ff;
+  color: #333;
   margin: 0px auto;
   font-weight: 100;
   font-size: 20px;
@@ -260,6 +268,8 @@ h1 {
   .settings img{
   width: 30px;
   height: 30px;
+  background-color: #121633;
+  border-radius: 50%;
   }
   
   @keyframes spin {
@@ -424,7 +434,7 @@ h1 {
 
   /* Settings.module.css */
 .settingsPage {
-  position: absolute;
+  /* position: absolute; */
   max-width: 500px;
   height: auto;
   background-color: #fff;
