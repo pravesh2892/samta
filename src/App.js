@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Navbar from "./components/Navbar";
+import CountdownTimer from "./components/CountdownTimer";
+import UserInfo from "./components/UserInfo";
+import "./App.css";
 
 function App() {
+  const [globalSearchTerm, setGlobalSearchTerm] = useState("");
+
+  const handleGlobalSearch = (term) => {
+    setGlobalSearchTerm(term);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar onSearch={handleGlobalSearch} />
+      <div className="app-container">
+        <CountdownTimer />
+        <UserInfo globalSearchTerm={globalSearchTerm} />
+      </div>
     </div>
   );
 }
