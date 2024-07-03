@@ -5,12 +5,10 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  background: rgb(238,174,202);
-  background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+  
 }
 
 .App {
-
   min-height: 100vh;
   height: 100%;
   display: flex;
@@ -41,6 +39,7 @@ h1 {
   color: white;
   padding: 10px 20px;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
 }
@@ -48,6 +47,20 @@ h1 {
 .navbar-brand {
   font-size: 1.5rem;
   font-weight: bold;
+}
+
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
 }
 
 .search-form {
@@ -72,6 +85,8 @@ h1 {
 .search-form button:hover {
   background-color: #e76060;
 }
+
+
 
 /* UserInfo.css */
 .user-info {
@@ -216,7 +231,7 @@ h1 {
   z-index: 10;
   }
   
-  /* TIME */
+
   .inner-circle h1{
   font-size: 5rem;
   font-weight: 900;
@@ -228,7 +243,7 @@ h1 {
   letter-spacing: 4px;
   }
   
-  /*PAUSE */
+ 
   .inner-circle p{
   position: absolute;
   z-index: 10;
@@ -434,7 +449,7 @@ h1 {
 
   /* Settings.module.css */
 .settingsPage {
-  /* position: absolute; */
+  
   max-width: 500px;
   height: auto;
   background-color: #fff;
@@ -582,4 +597,39 @@ h1 {
   font-size: 15px;
   cursor: pointer;
   transform: translate(-50%, -50%);
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-toggle {
+    display: block;
+    align-self: flex-end;
+    margin-top: -30px;
+  }
+
+  .navbar-content {
+    display: none;
+    width: 100%;
+  }
+
+  .navbar-content.active {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-form {
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .search-form input {
+    flex-grow: 1;
+  }
 }
